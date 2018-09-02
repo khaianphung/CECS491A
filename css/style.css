@@ -1,0 +1,242 @@
+#wrapper{font-family:fantasy;}
+.container{width:95%;
+margin:0 auto;
+}
+#subheader{
+    width:100%;
+   
+    height:30px;
+    background:#FFDF00;
+    color:#000;
+    margin-top:-10px;
+}
+#subheader p{
+    float:left;
+    margin-top:4px;
+}
+#subheader a{
+    float:right;
+    line-height:30px;
+    color:#000;
+    text-decoration:none;
+    margin-left:30px;
+    
+}
+/*logo styling*/
+#main-header{
+    width: 100%;
+    height: 80;
+    background: #fffc56;
+    float:left;
+    margin-top:-10px;
+    
+}
+#logo{
+    width:250px;
+    margin-top: 10px;
+    float:left;
+    
+}
+#ist{
+    color:black;
+    font-size:45px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-family: cursive;
+    
+}
+#iist{
+    color:black;
+    font-size:15px;
+    font-weight: bold;
+   
+    font-family: cursive;
+}
+/*searching area styling*/
+#search{
+    width: 800px;
+    float: left;
+    padding: 20px
+    margin-left: 50px;
+    margin-top: 15px;
+    
+}
+.search-area{
+    width:750px;
+    height: 50px;
+    background: #fff;
+    border: none;
+    border-radius:10px;
+    float:left;
+    padding-left: 15px;
+    
+    
+}
+.search-btn{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #000;
+    background: #ffb744;
+    margin-left: -100px;
+}
+/*This is for user menu styling*/
+#user-menu{
+    width: 300px;
+    float: right;
+    margin-top: 20px;
+    
+}
+/*This is for list styling*/
+#user-menu li{
+    float:left;
+    width: 140px;
+    text-align: center;
+    list-style: none;
+    font-size:25px;
+    border-left: 1px solid black;
+}
+
+#user-menu li:hover{
+    font-size:50px;
+    transition: all 0.5s ease;
+}
+#user-menu li a{
+    color: #ffb744;
+    text-decoration:none;
+}
+/*Style of Navigation Bar*/
+#navigation{
+    width: 100%;
+    height: 80px;
+    background: #fffc56;
+    border-top: 1px solid black;
+    text-align: center;
+    float: left;
+}
+nav{
+    width: 1280px;
+    margin:0 auto;
+}
+nav a{
+    margin-left: 35px;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover{
+    font-size:50px;
+     color: #ffb744;
+    transition: all 0.5s ease;
+}
+
+/*===Slider===*/
+#slider{
+    width: 500px;
+    height: 500px;
+    
+    float: left;
+    margin-top:5%;
+   margin-left:10%;
+}
+
+.bx-wrapper .bx-viewport {
+    margin-top:-20px;
+}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{
+    bottom: 30px;
+}
+.bx-wrapper .bx-pager.bx-default-pager a{
+    width:15px;
+    height:15px;
+    border-radius:20px;
+    
+}
+.slider span{ 
+    display:block;
+}
+/*why doesn't it enter new line?
+/*=====Team heading====*/
+#heading-block{
+    
+    width:100%;
+    height: auto;
+    float: left;
+    color: #ffb744;
+    font-size:25px;
+}
+#heading-block h2{
+    line-height: 35px;
+    border-left:20px solid #ffb744;
+    padding-left:10px; 
+
+}
+/*==Team boxes==*/
+.catbox{
+    width:170;
+    height:120px;
+    overflow:hidden;
+    position: relative;
+    margin: 0 10 20;
+    display: inline-block;
+}
+}
+.catbox span{
+    width:100%;
+    height: 50px;
+    line-height: 35px;
+    
+    color:black;
+    display:block;
+    bottom:30px;
+    position:absolute;
+    z-index: 999;
+    text-align: center;
+}
+
+.catbox:hover span{
+    color:#ffb744;
+}
+.catbox img{
+    max-width:100%;
+    transition:all 0.7 ease;
+    
+}
+.catbox:hover img{
+    transform:scale(1.5,1.5);
+    transition:all 0.5s ease;
+}
+
+/*Player styling*/
+.player-box{
+    width:120px;
+    height:120px;
+    overflow: hidden;
+    margin: 0 20 30 0;
+    position: relative;
+    display: inline-block;
+}
+.player-box>img{
+    max-width: 100%;
+}
+
+.player-trans{
+    background:rgba(0,0,0,0,0.6);
+    width: 100%;
+    height:100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position: absolute;
+    opacity:0;   
+    transition: all 0.5s ease;
+}
+
+.player-box:hover .player-trans{
+    opacity:1;
+    transition: all 0.5s ease;
+    
+}
+
