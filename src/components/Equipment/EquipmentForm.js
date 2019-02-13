@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductCodeForm from './ProductCodeForm'
 
 export default class EquipmentForm extends React.Component {
   constructor(props) {
@@ -36,18 +37,10 @@ export default class EquipmentForm extends React.Component {
     let codeDescription = this.state.digitsLeft === this.state.maxLength ? this.state.digitsLeft+"-digits" : this.state.digitsLeft+"-digits left"
 
     return (
-      <form>
+      <form className="equipment-form">
         <h3>Input Product Details</h3>
         <div className="form-group">
-          <label>Product Code ({codeDescription})</label>
-          <input 
-            type="text"
-            className="form-control"
-            placeholder="Enter Product Code"
-            name="productCode"
-            maxLength="12" 
-            value={this.state.productCode} 
-            onChange={this.handleChange}/>
+          <ProductCodeForm productCode={this.productCode}/>
         </div>
         <div className="form-group">
           <label>Product Name</label>

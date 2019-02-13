@@ -2,9 +2,6 @@ import React from 'react';
 import EquipmentTableHeader from './EquipmentTableHeader';
 import EquipmentTableBody from './EquipmentTableBody';
 
-// import equipment from 'equipmentTempData';
-// console.log(equipment);
-
 var equipment = [
   {
     code: "00001",
