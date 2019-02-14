@@ -7,7 +7,7 @@ export default class CheckInForm extends React.Component {
     this.state = {
       productCode: '',
     };
-  }  
+  }
   render () {
     let codeDescription = this.state.digitsLeft === this.state.maxLength ? this.state.digitsLeft+"-digits" : this.state.digitsLeft+"-digits left"
 

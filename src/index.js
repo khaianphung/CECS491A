@@ -14,6 +14,7 @@ import Equipment from './components/Equipment/Equipment';
 import EquipmentForm from './components/Equipment/EquipmentForm';
 import CheckInForm from './components/Equipment/CheckInForm';
 import CheckOutForm from './components/Equipment/CheckOutForm';
+import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
 
 class Gems extends React.Component {
   render () {
@@ -43,21 +44,29 @@ class Menu extends React.Component {
           <Route path="/equipment/new" component={EquipmentForm} exact />
           <Route path="/equipment/check_in" component={CheckInForm} exact />
           <Route path="/equipment/check_out" component={CheckOutForm} exact />
+          <Route path="/equipment/transfer" component={EquipmentTransferForm} exact />
         </div>
       </BrowserRouter>
     );
   }  
 }
 
-// class CheckOutForm extends React.Component {
+// class EquipmentTransferForm extends React.Component {
 //   constructor(props) {
 //     this.state = {
 //       productCode: '',
+//       currentOwner: '',
+//       newOwner: ''
 //     };
 //   }
 //   render () {
 //     return (
-
+//       <form className="equipment-transfer-form">
+//       <h3>Check Out: Input Product Details</h3>
+//         <div className="form-group">
+//           <ProductCodeForm productCode={this.productCode}/>
+//         </div>
+//       </form>
 //     )
 //   }  
 // }

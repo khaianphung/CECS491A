@@ -7,6 +7,7 @@ export default class EquipmentForm extends React.Component {
     this.state = {
       productCode: '',
       productName: '',
+      productCategory: '',
       productTotalQuantity: 0,
       digitsLeft: 0,
       maxLength: 12
@@ -51,7 +52,17 @@ export default class EquipmentForm extends React.Component {
             name="productName" 
             value={this.state.productName}
             onChange={this.handleChange}/>
-        </div>       
+        </div>
+        <div className="form-group">
+          <label>Product Category</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            placeholder="Enter Product Category" 
+            name="productCategory" 
+            value={this.state.productCategory}
+            onChange={this.handleChange}/>
+        </div>        
         <div className="form-group">
           <label>Total Quantity</label>
           <input 
