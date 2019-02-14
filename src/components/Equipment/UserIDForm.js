@@ -20,7 +20,7 @@ export default class UserIDForm extends React.Component {
       [name]: value
     });
 
-    if (name == "userID") { 
+    if (name === "userID") { 
       this.updateDigitsLeft(value);
     }
   }

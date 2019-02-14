@@ -20,7 +20,7 @@ export default class ProductCodeForm extends React.Component {
       [name]: value
     });
 
-    if (name == "productCode") { 
+    if (name === "productCode") { 
       this.updateDigitsLeft(value);
     }
   }

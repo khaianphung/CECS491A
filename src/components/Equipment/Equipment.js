@@ -9,4 +9,9 @@ const Equipment = ({equipment}) =>
     <div className="col">{equipment.totalQuantity}</div>
   </div>
 
+// const Equipment = ({props}) => (
+//   <div className="row">
+//     <div className="col">{props.params.id}</div>
+//   </div>
+// );
  export default Equipment;

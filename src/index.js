@@ -39,12 +39,13 @@ class Menu extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <Route path="/" component={Home} exact />
-          <Route path="/equipment" component={EquipmentTable} exact />
-          <Route path="/equipment/new" component={EquipmentForm} exact />
-          <Route path="/equipment/check_in" component={CheckInForm} exact />
-          <Route path="/equipment/check_out" component={CheckOutForm} exact />
-          <Route path="/equipment/transfer" component={EquipmentTransferForm} exact />
+          <Route path='/' component={Home} exact />
+          
+          <Route path='/equipment' component={EquipmentTable} exact />
+          <Route path='/equipment/new' component={EquipmentForm} exact />
+          <Route path='/equipment/check_in' component={CheckInForm} exact />
+          <Route path='/equipment/check_out' component={CheckOutForm} exact />
+          <Route path='/equipment/transfer' component={EquipmentTransferForm} exact />
         </div>
       </BrowserRouter>
     );

@@ -9,14 +9,9 @@ export default class EquipmentForm extends React.Component {
       productName: '',
       productCategory: '',
       productTotalQuantity: 0,
-      digitsLeft: 0,
-      maxLength: 12
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  componentDidMount() {
-    this.setState({digitsLeft: this.state.maxLength});
-  }  
   handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;
@@ -24,19 +19,8 @@ export default class EquipmentForm extends React.Component {
     this.setState({
       [name]: value
     });
-
-    if (name == "productCode") { 
-      this.updateDigitsLeft(value);
-    }
-  }
-  updateDigitsLeft(value) {
-    this.setState({
-      digitsLeft: this.state.maxLength - value.length,
-    });
   }
   render () {
-    let codeDescription = this.state.digitsLeft === this.state.maxLength ? this.state.digitsLeft+"-digits" : this.state.digitsLeft+"-digits left"
-
     return (
       <form className="equipment-form">
         <h3>Input Product Details</h3>

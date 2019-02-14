@@ -32,7 +32,8 @@ export default class EquipmentTransferForm extends React.Component {
         </div>
         <div className="form-group">
           <UserIDForm userID={this.newOwnerID} userDescription="New Owner"/>
-        </div>        
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     )
   }  
