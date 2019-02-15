@@ -6,9 +6,10 @@ export default class EquipmentForm extends React.Component {
     super(props);
     this.state = {
       productCode: '',
-      productName: '',
-      productCategory: '',
-      productTotalQuantity: 0,
+      name: '',
+      category: '',
+      description: '',
+      totalQuantity: 0,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,28 +24,38 @@ export default class EquipmentForm extends React.Component {
   render () {
     return (
       <form className="equipment-form">
-        <h3>Input Product Details</h3>
+        <h3>Input Equipment Details</h3>
         <div className="form-group">
           <ProductCodeForm productCode={this.productCode}/>
         </div>
         <div className="form-group">
-          <label>Product Name</label>
+          <label>Name</label>
           <input 
             type="text" 
             className="form-control" 
-            placeholder="Enter Product Name" 
-            name="productName" 
-            value={this.state.productName}
+            placeholder="Enter Equipment Name" 
+            name="name" 
+            value={this.state.name}
             onChange={this.handleChange}/>
         </div>
         <div className="form-group">
-          <label>Product Category</label>
+          <label>Category</label>
           <input 
             type="text" 
             className="form-control" 
-            placeholder="Enter Product Category" 
-            name="productCategory" 
-            value={this.state.productCategory}
+            placeholder="Enter Equipment Category" 
+            name="category" 
+            value={this.state.category}
+            onChange={this.handleChange}/>
+        </div>
+        <div className="form-group">
+          <label>Description</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            placeholder="Enter Equipment Description" 
+            name="description" 
+            value={this.state.description}
             onChange={this.handleChange}/>
         </div>        
         <div className="form-group">
@@ -52,9 +63,8 @@ export default class EquipmentForm extends React.Component {
           <input 
             type="number" 
             className="form-control" 
-            placeholder="Enter Total Quantity" 
-            name="productTotalQuantity"
-            value={this.state.productTotalQuantity}
+            name="totalQuantity"
+            value={this.state.totalQuantity}
             onChange={this.handleChange}/>
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>

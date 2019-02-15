@@ -7,14 +7,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Route } from "react-router-dom"
 
-// import EquipmentTableHeader from './components/Equipment/EquipmentTableHeader';
-// import EquipmentTableBody from './components/Equipment/EquipmentTableBody';
+import EquipmentTableHeader from './components/Equipment/EquipmentTableHeader';
+import EquipmentTableBody from './components/Equipment/EquipmentTableBody';
 import EquipmentTable from './components/Equipment/EquipmentTable';
-import Equipment from './components/Equipment/Equipment';
+// import EquipmentItem from './components/Equipment/EquipmentItem';
 import EquipmentForm from './components/Equipment/EquipmentForm';
-import CheckInForm from './components/Equipment/CheckInForm';
-import CheckOutForm from './components/Equipment/CheckOutForm';
-import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
+// import CheckInForm from './components/Equipment/CheckInForm';
+// import CheckOutForm from './components/Equipment/CheckOutForm';
+// import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
 
 class Gems extends React.Component {
   render () {
@@ -34,63 +34,42 @@ const Home = () => {
   );
 }
 
+const User = ({ match }) => {
+  return <h1>Hello {match.params.username}!</h1>
+}
+
 class Menu extends React.Component {
   render () {
     return (
       <BrowserRouter>
         <div>
           <Route path='/' component={Home} exact />
-          
-          <Route path='/equipment' component={EquipmentTable} exact />
+          <Route path="/user/:username" component={User}/>
           <Route path='/equipment/new' component={EquipmentForm} exact />
-          <Route path='/equipment/check_in' component={CheckInForm} exact />
-          <Route path='/equipment/check_out' component={CheckOutForm} exact />
-          <Route path='/equipment/transfer' component={EquipmentTransferForm} exact />
+          <Route path='/equipment' component={EquipmentTable} exact />
         </div>
       </BrowserRouter>
     );
   }  
 }
 
-// class EquipmentTransferForm extends React.Component {
-//   constructor(props) {
-//     this.state = {
-//       productCode: '',
-//       currentOwner: '',
-//       newOwner: ''
-//     };
-//   }
+// class Menu extends React.Component {
 //   render () {
 //     return (
-//       <form className="equipment-transfer-form">
-//       <h3>Check Out: Input Product Details</h3>
-//         <div className="form-group">
-//           <ProductCodeForm productCode={this.productCode}/>
+//       <BrowserRouter>
+//         <div>
+//           <Route path='/' component={Home} exact />
+//           <Route path="/user/:username" component={User}/>
+//           <Route path='/equipment/:id' component={EquipmentItem} exact />
+//           <Route path='/equipment' component={EquipmentTable} exact />
+//           <Route path='/equipment/new' component={EquipmentForm} exact />
+//           <Route path='/equipment/check_in' component={CheckInForm} exact />
+//           <Route path='/equipment/check_out' component={CheckOutForm} exact />
+//           <Route path='/equipment/transfer' component={EquipmentTransferForm} exact />
 //         </div>
-//       </form>
-//     )
+//       </BrowserRouter>
+//     );
 //   }  
-// }
-
-
-// class CheckInForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       productCode: '',
-//     };
-//   }  
-//   render () {
-//     let codeDescription = this.state.digitsLeft === this.state.maxLength ? this.state.digitsLeft+"-digits" : this.state.digitsLeft+"-digits left"
-
-//     return (
-//       <div className="check-in-form">
-//         <div className="form-group">
-//           <ProductCodeForm productCode={this.productCode}/>
-//         </div>
-//       </div>
-//     )
-//   }
 // }
 
 ReactDOM.render(<Gems />, document.getElementById("root"));

@@ -1,23 +1,24 @@
 import React from 'react';
-import EquipmentTableHeader from './EquipmentTableHeader';
-import EquipmentTableBody from './EquipmentTableBody';
 
-export default class EquipmentTable extends React.Component {
+export default class EquipmentItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      equipmentItemTypes: equipmentItemTypes,
+      equipment: equipment[props.match.params.id - 1]
     };
   }
   render() {
     return (
-      <div className="equipment-table">
-        <EquipmentTableHeader />
-        <EquipmentTableBody equipmentItemTypes={this.state.equipmentItemTypes} />
+      <div className="row">
+        <div className="col">{this.state.equipment.code}</div>
+        <div className="col">{this.state.equipment.name}</div>
+        <div className="col">{this.state.equipment.category}</div>
+        <div className="col">{this.state.equipment.availableQuantity}</div>
+        <div className="col">{this.state.equipment.totalQuantity}</div>
       </div>
     );
   }
-}
+} 
 
 var equipmentItemTypes = [
   {

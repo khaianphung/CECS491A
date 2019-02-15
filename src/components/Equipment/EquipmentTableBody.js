@@ -1,13 +1,13 @@
 import React from 'react';
-import Equipment from './Equipment';
+import EquipmentItemType from './EquipmentItemType';
 
 export default class EquipmentTableBody extends React.Component {
   renderEquipmentTable() {
     return (
-      this.props.equipment.map(
-        ( _equipment, _index ) => (
-          <Equipment key= { _index }
-          equipment={ _equipment} 
+      this.props.equipmentItemTypes.map(
+        ( _equipmentItemType, _index ) => (
+          <EquipmentItemType key= { _index }
+          equipmentItemType={ _equipmentItemType} 
           />
       ) )
     )

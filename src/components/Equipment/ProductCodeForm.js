@@ -38,7 +38,7 @@ export default class ProductCodeForm extends React.Component {
         <input 
           type="text"
           className="form-control"
-          placeholder="Enter Product Code"
+          placeholder="Enter Equipment Product Code"
           name="productCode"
           maxLength="12" 
           value={this.props.productCode} 
