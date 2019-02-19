@@ -10,7 +10,7 @@ import { BrowserRouter, Route } from "react-router-dom"
 import EquipmentTableHeader from './components/Equipment/EquipmentTableHeader';
 import EquipmentTableBody from './components/Equipment/EquipmentTableBody';
 import EquipmentTable from './components/Equipment/EquipmentTable';
-// import EquipmentItem from './components/Equipment/EquipmentItem';
+import EquipmentItem from './components/Equipment/EquipmentItem';
 import EquipmentForm from './components/Equipment/EquipmentForm';
 // import CheckInForm from './components/Equipment/CheckInForm';
 // import CheckOutForm from './components/Equipment/CheckOutForm';
@@ -45,8 +45,9 @@ class Menu extends React.Component {
         <div>
           <Route path='/' component={Home} exact />
           <Route path="/user/:username" component={User}/>
-          <Route path='/equipment/new' component={EquipmentForm} exact />
           <Route path='/equipment' component={EquipmentTable} exact />
+          <Route path='/equipment/:id' component={EquipmentItem} exact />
+          <Route path='/equipment/new' component={EquipmentForm} exact />
         </div>
       </BrowserRouter>
     );
