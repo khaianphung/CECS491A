@@ -7,7 +7,6 @@ export default class EquipmentItem extends React.Component {
     this.state = {
       id: props.match.params.id,
     };
-    console.log("here");
   }
   getEquipment() {
     return equipmentItemTypes
