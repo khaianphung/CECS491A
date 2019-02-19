@@ -12,9 +12,9 @@ import EquipmentTableBody from './components/Equipment/EquipmentTableBody';
 import EquipmentTable from './components/Equipment/EquipmentTable';
 import EquipmentItem from './components/Equipment/EquipmentItem';
 import EquipmentForm from './components/Equipment/EquipmentForm';
-// import CheckInForm from './components/Equipment/CheckInForm';
-// import CheckOutForm from './components/Equipment/CheckOutForm';
-// import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
+import CheckInForm from './components/Equipment/CheckInForm';
+import CheckOutForm from './components/Equipment/CheckOutForm';
+import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
 
 class Gems extends React.Component {
   render () {
@@ -48,6 +48,9 @@ class Menu extends React.Component {
           <Route path='/equipment' component={EquipmentTable} exact />
           <Route path='/equipment/:id' component={EquipmentItem} exact />
           <Route path='/equipment/new' component={EquipmentForm} exact />
+          <Route path='/equipment/check_in' component={CheckInForm} exact />
+          <Route path='/equipment/check_out' component={CheckOutForm} exact />
+          <Route path='/equipment/transfer' component={EquipmentTransferForm} exact />          
         </div>
       </BrowserRouter>
     );
