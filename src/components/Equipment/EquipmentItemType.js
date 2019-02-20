@@ -28,23 +28,31 @@ export default class EquipmentItemType extends React.Component {
     }
     else {
       let equipmentItemType = this.getEquipmentType();
-      return (
-        <div className="equipment-item-type">
-          <EquipmentTableHeader />
-          <div className="row">
-            <div className="col-md-2">{equipmentItemType.name}</div>
-            <div className="col-md-1">{equipmentItemType.category}</div>
-            <div className="col-md-2">{equipmentItemType.description}</div>
-            <div className="col-md-2">{equipmentItemType.availableQuantity}</div>
-            <div className="col-md-2">{equipmentItemType.totalQuantity}</div>
-            <div className="col-md-3">
-              <button type="submit" className="btn btn-success">Edit</button>
-              <button type="submit" className="btn btn-primary">Add</button>
-              <button type="submit" className="btn btn-danger">Delete</button>
+      if (equipmentItemType != null) {
+        return (
+          <div className="equipment-item-type">
+            <EquipmentTableHeader />
+            <div className="row">
+              <div className="col-md-2">{equipmentItemType.name}</div>
+              <div className="col-md-1">{equipmentItemType.category}</div>
+              <div className="col-md-2">{equipmentItemType.description}</div>
+              <div className="col-md-2">{equipmentItemType.availableQuantity}</div>
+              <div className="col-md-2">{equipmentItemType.totalQuantity}</div>
+              <div className="col-md-3">
+                <button type="submit" className="btn btn-success">Edit</button>
+                <button type="submit" className="btn btn-primary">Add</button>
+                <button type="submit" className="btn btn-danger">Delete</button>
+              </div>
             </div>
           </div>
-        </div>
-      )
+        )
+      }
+      else {
+        return (
+          <div className="equipment-item-type">
+          </div>
+        )        
+      }
     }
   }
 }
