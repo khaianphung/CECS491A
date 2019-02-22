@@ -22,7 +22,20 @@ button {
 	font-size: 12px !important;
 	margin: 0.25rem !important;
 }
+.equipment-table {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 5px;
+}
 
+.equipment-table .equipment-table-header {
+  color: white;
+  background-color: #006abb;
+}
+
+.equipment-item-type.odd {
+  background-color: #f1f5f8;
+}
 .fa, .fas {
   color: #36A2EB;
   padding: 0rem .25rem 0rem .25rem;

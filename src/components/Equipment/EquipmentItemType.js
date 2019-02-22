@@ -7,22 +7,25 @@ export default class EquipmentItemType extends React.Component {
   }
   render () {
     let equipmentItemType = this.props.equipmentItemType;
+    console.log(this.props.index+1);
+    console.log(((this.props.index+1) % 2 == 1));
+    console.log((((this.props.index+1) % 2 == 1) ? 'odd': 'a'));
 
     if (equipmentItemType != null) {
       return (
-        <div className="equipment-item-type">
+        <div className={"equipment-item-type " + (((this.props.index+1) % 2 == 1) ? 'odd': '')}>
           <div className="row">
             <div className="name col">{equipmentItemType.name}</div>
-            <div className="category col">{equipmentItemType.category}</div>
+            <div className="category col"><i className={equipmentItemType.fafaCategory}></i>{equipmentItemType.category}</div>
             <div className="description col">{equipmentItemType.description}</div>
               <div className="quantity col">
                 <span className="available-quanity">{equipmentItemType.availableQuantity}</span> /
                 <span className="total-quantity">{equipmentItemType.totalQuantity}</span>
               </div>
             <div className="actions col">
-                <i className="fas fa-edit"></i>
-                <i className="fas fa-plus"></i>
-                <i className="fas fa-trash-alt"></i>
+                <a href={"/equipment/" + equipmentItemType.name.toLowerCase() + "/edit"}><i className="fas fa-edit"></i></a>
+                <a href="/equipment/new"><i className="fas fa-plus"></i></a>
+                <a href=""><i className="fas fa-trash-alt"></i></a>
             </div>
           </div>
         </div>
@@ -44,9 +47,9 @@ export default class EquipmentItemType extends React.Component {
                 <span className="total-quantity">{equipmentItemType.totalQuantity}</span>
               </div>
               <div className="actions col">
-                <i className="fas fa-edit"></i>
-                <i className="fas fa-plus"></i>
-                <i className="fas fa-trash-alt"></i>
+                <a href={"/equipment/" + equipmentItemType.name.toLowerCase() + "/edit"}><i className="fas fa-edit"></i></a>
+                <a href="/equipment/new"><i className="fas fa-plus"></i></a>
+                <a href=""><i className="fas fa-trash-alt"></i></a>
               </div>
             </div>
           </div>
@@ -64,6 +67,7 @@ var equipmentItemTypes = [
     id: 1,
     name: "Hat",
     category: "Headwear",
+    fafaCategory: "fas fa-hard-hat",
     description: "This is a hat",
     availableQuantity: 1,
     totalQuantity: 3,
@@ -95,6 +99,7 @@ var equipmentItemTypes = [
     id: 2,
     name: "Shirt",
     category: "Apparel",
+    fafaCategory: "fas fa-tshirt",
     description: "This is a shirt",
     availableQuantity: 2,
     totalQuantity: 4,
@@ -133,6 +138,7 @@ var equipmentItemTypes = [
     id: 3,
     name: "External Battery",
     category: "Electronics",
+    fafaCategory: "fas fa-laptop",
     description: "This is an external battery",
     availableQuantity: 0,
     totalQuantity: 2,
@@ -157,6 +163,7 @@ var equipmentItemTypes = [
     id: 4,
     name: "Laptop",
     category: "Electronics",
+    fafaCategory: "fas fa-laptop",
     description: "This is a laptop",
     availableQuantity: 4,
     totalQuantity: 4,
@@ -195,6 +202,7 @@ var equipmentItemTypes = [
     id: 5,
     name: "iPhone",
     category: "Electronics",
+    fafaCategory: "fas fa-laptop",
     description: "This is an iPhone",
     availableQuantity: 3,
     totalQuantity: 4,

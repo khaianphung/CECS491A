@@ -6,7 +6,7 @@ export default class EquipmentTableBody extends React.Component {
     return (
       this.props.equipmentItemTypes.map(
         ( _equipmentItemType, _index ) => (
-          <EquipmentItemType key= { _index }
+          <EquipmentItemType key={ _index } index={ _index }
           equipmentItemType={ _equipmentItemType} 
           />
       ) )
