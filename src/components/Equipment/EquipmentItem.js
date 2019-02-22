@@ -29,20 +29,17 @@ export default class EquipmentItem extends React.Component {
       <div className="equipment-item">
         <EquipmentItemHeader />
         <div className="row">
-          <div className="col">{equipmentItem.id}</div>
-          <div className="col">{equipmentItemType.name}</div>
-          <div className="col">{equipmentItemType.category}</div>
-          <div className="col">{status}</div>
-          <div className="col">{currentOwner}</div>
+          <div className="id col">{equipmentItem.id}</div>
+          <div className="name col">{equipmentItemType.name}</div>
+          <div className="category col">{equipmentItemType.category}</div>
+          <div className="status col">{status}</div>
+          <div className="current-owner col">{currentOwner}</div>
         </div>
       </div>
     );
     }
     else {
-          return (
-      <div className="equipment-item">
-      </div>
-    );
+      return null;
     }
   }
 }

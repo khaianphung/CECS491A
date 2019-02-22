@@ -3,12 +3,11 @@ import React from 'react';
 const EquipmentTableHeader = () =>
   <div className="equipment-table-header">
     <div className="row">
-      <div className="col-md-2">Name</div>
-      <div className="col-md-1">Category</div>
-      <div className="col-md-2">Description</div>
-      <div className="col-md-2">Available Quantity</div>
-      <div className="col-md-2">Total Quantity</div>
-      <div className="col-md-3">Actions</div>
+      <div className="name col">Name</div>
+      <div className="category col">Category</div>
+      <div className="description col">Description</div>
+      <div className="quantity col">Quantity</div>
+      <div className="actions col">Actions</div>
     </div>
   </div>
 
