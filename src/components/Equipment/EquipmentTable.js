@@ -12,6 +12,7 @@ export default class EquipmentTable extends React.Component {
   render() {
     return (
       <div className="equipment-table">
+        <h3>Equipment Types</h3>
         <EquipmentTableHeader />
         <EquipmentTableBody equipmentItemTypes={this.state.equipmentItemTypes} />
       </div>

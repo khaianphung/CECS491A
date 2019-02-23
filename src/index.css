@@ -31,6 +31,7 @@ button {
 .equipment-table .equipment-table-header {
   color: white;
   background-color: #006abb;
+  padding: 0.5rem;
 }
 
 .equipment-item-type.odd {
@@ -53,7 +54,7 @@ button {
   color: #2199e8;
 }
 
-.equipment-table-header, .equipment-item-type, row {
+.equipment-table-header, .equipment-item-type {
   background: white;
   margin-bottom: 0.25rem;
   padding: 1rem;
