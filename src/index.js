@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -106,19 +106,22 @@ class VenueList extends React.Component {
 class Venue extends React.Component {
   render () {
     return (
-      <div className="card card-cascade wider">
-
-        <div className="view view-cascade overlay">
-          <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/photo6.jpg" />
-          <a className="#!">
-            <div className="mask rgba-white-slight"></div>
-          </a>
+      <div className="venue card">
+        <div className="card-img">
+          <img src={'images/' + this.props.venue.picture_url} />
         </div>
-
-        <div className="card-body card-body-cascade text-center">
-          <h4 className="card-title"><strong>Alison Belmont</strong></h4>
-          <h5 className="blue-text pb-2"><strong>Graffiti Artist</strong></h5>
-          <p className="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+        <div className="card-img-overlay d-flex flex-column justify-content-end">
+          <div className="d-flex">
+            <div className="description flex-grow-1">
+              <p className="card-text title">{this.props.venue.name}</p>
+              <p className="card-text location">{this.props.venue.location.name}, {this.props.venue.location.city}, {this.props.venue.location.country}</p>
+              <p className="card-text date">{this.props.venue.date}</p>
+            </div>
+            <div className="actions">
+              <i className="far fa-share-square"></i>
+              <i className="far fa-heart"></i>
+            </div>
+          </div>
         </div>
       </div>
     )
