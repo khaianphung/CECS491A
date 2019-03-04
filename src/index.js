@@ -1,7 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import $ from 'jquery';
-// import Popper from 'popper.js';
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
@@ -32,7 +28,12 @@ class Gems extends React.Component {
 
 const Home = () => {
   return (
-    <div>Home</div>
+<div class="form-group">
+  <input type="text" id="inputMDEx" className="form-control" />
+  <label htmlFor="inputMDEx">Medium input</label>
+  <input type="text" id="blah" className="form-control" />
+  <label htmlFor="blah">Medium input</label> 
+</div>
   );
 }
 
