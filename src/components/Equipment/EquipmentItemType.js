@@ -13,22 +13,20 @@ export default class EquipmentItemType extends React.Component {
 
     if (equipmentItemType != null) {
       return (
-        <div className={"equipment-item-type " + (((this.props.index+1) % 2 == 1) ? 'odd': '')}>
-          <div className="row">
-            <div className="name col">{equipmentItemType.name}</div>
-            <div className="category col"><i className={equipmentItemType.fafaCategory}></i>{equipmentItemType.category}</div>
-            <div className="description col">{equipmentItemType.description}</div>
-              <div className="quantity col">
-                <span className="available-quanity">{equipmentItemType.availableQuantity}</span> /
-                <span className="total-quantity">{equipmentItemType.totalQuantity}</span>
-              </div>
-            <div className="actions col">
-                <a href={"/equipment/" + equipmentItemType.name.toLowerCase() + "/edit"}><i className="fas fa-edit"></i></a>
-                <a href="/equipment/new"><i className="fas fa-plus"></i></a>
-                <a href=""><i className="fas fa-trash-alt"></i></a>
-            </div>
-          </div>
-        </div>
+        <tr className="equipment-item-type">
+          <td className="name-col">{equipmentItemType.name}</td>
+          <td className="category-col">{equipmentItemType.category}</td>
+          <td className="description-col">{equipmentItemType.description}</td>
+          <td className="quantity-col">
+            <span className="available-quanity">{equipmentItemType.availableQuantity}</span> /
+            <span className="total-quantity">{equipmentItemType.totalQuantity}</span>
+          </td>
+          <td className="actions-col">
+            <a href={"/equipment/" + equipmentItemType.name.toLowerCase() + "/edit"}><i className="fas fa-edit"></i></a>
+            <a href="/equipment/new"><i className="fas fa-plus"></i></a>
+            <a href=""><i className="fas fa-trash-alt"></i></a>
+          </td>
+        </tr>
       )      
     }
     else {

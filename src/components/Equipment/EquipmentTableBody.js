@@ -14,9 +14,9 @@ export default class EquipmentTableBody extends React.Component {
   }
   render() {
     return (
-      <div className="equipment-table-body">
+      <tbody className="equipment-table-body">
         {this.renderEquipmentTable()}
-      </div>
+      </tbody>
     );
   }
 }

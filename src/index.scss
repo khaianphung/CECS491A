@@ -18,25 +18,23 @@ code {
 
 // EQUIPMENT STYLING
 .equipment-table {
-  font-weight: bold;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 5px;
+  td {
+    font-weight: bold;
+  }
+  tbody {
+    tr:hover {
+      // background-color: $primary-color !important;
+      // opacity: 0.5;
+    }
+  }
   .equipment-table-header {
     color: white;
     background-color: #006abb;
-    border-radius: 5px;
-    padding: 0.5rem;
   }
   .equipment-item-type {
-    margin-bottom: 0.25rem;
     padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 1px rgba(170,170,170,0.25);    
-    &.odd {
-      background-color: #f1f5f8;    
-    }
-    .quantity {
+    // box-shadow: 0 2px 1px rgba(170,170,170,0.25);    
+    .quantity-col {
       .available-quanity {
         color: #FF6384;
       }

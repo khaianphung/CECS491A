@@ -44,6 +44,7 @@ export default class EquipmentItem extends React.Component {
   }
 }
 
+
 var equipmentItemTypes = [
   {
     id: 1,
@@ -215,3 +216,14 @@ var equipmentItemTypes = [
     ]
   }
 ];
+
+// <div className="equipment-item">
+//   <EquipmentItemHeader />
+//   <div className="row">
+//     <div className="id col">{equipmentItem.id}</div>
+//     <div className="name col">{equipmentItemType.name}</div>
+//     <div className="category col">{equipmentItemType.category}</div>
+//     <div className="status col">{status}</div>
+//     <div className="current-owner col">{currentOwner}</div>
+//   </div>
+// </div>
