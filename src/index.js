@@ -47,6 +47,7 @@ class Menu extends React.Component {
       <BrowserRouter>
         <div>
           <Route path='/' component={Home} exact />
+          <Route path='/AdminConsole' component={AdminConsole} exact />
           <Route path='/venue' component={VenueList} exact />
           <Route path="/user/:username" component={User}/>
           <Route path='/equipment' component={EquipmentTable} exact />
@@ -61,6 +62,10 @@ class Menu extends React.Component {
       </BrowserRouter>
     );
   }  
+}
+
+const AdminConsole = ({ match }) => {
+  return <a href="">Link to go here!</a>
 }
           
           

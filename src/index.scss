@@ -1,3 +1,5 @@
+$primary-color: #fa3e3e;
+
 body {
   font-size: 0.85rem;
   margin: 0;
@@ -59,7 +61,7 @@ code {
         text-transform: uppercase;
         padding: 0.25rem 0.75rem 0.25rem 0.75rem;
         margin: 0.25rem;
-        background-color: #fa3e3e;
+        background-color: $primary-color;
         border-radius: 5px;
 
       }
@@ -113,7 +115,7 @@ code {
         }
         .date {
           font-size: 0.7rem;
-          color: #fa3e3e;
+          color: $primary-color;
         }        
       }
     }
