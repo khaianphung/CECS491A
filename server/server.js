@@ -25,9 +25,7 @@ app.get('/api/equipmentItemTypes', (req, res) => {
       return res.send(err);
     }
     else {
-      return res.json({
-        data
-      })
+      return res.json({ data })
     }
   });
 });
