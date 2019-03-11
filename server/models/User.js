@@ -1,34 +1,29 @@
-const mongoose = require('mongoose')
+const Sequelize = require('sequelize');
+const db = require('../config/database');
 
-let UserSchema = new mongoose.Schema(
-    {
-        name: String,
-        email: String,
-        provider: String,
-        provider_id: String,
-        token: String,
-        provider_pic: String,
-        followers: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ],
-        following: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ]
-    }
-)
-UserSchema.methods.follow = function (user_id) {
-    if (this.following.indexOf(user_id) === -1) {
-        this.following.push(user_id)        
-    }
-    return this.save()
-}
-UserSchema.methods.addFollower = function (fs) {
-    this.followers.push(fs)        
-}
-module.exports = mongoose.model('User', UserSchema)
+const User = db.define('user', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  username: {
+    type: Sequelize.STRING
+  },
+  email: {
+    type: Sequelize.STRING
+  },
+  status: {
+    type: Sequelize.STRING
+  },
+  first_name: {
+    type: Sequelize.STRING
+  },
+  last_name: {
+    type: Sequelize.STRING
+  }
+}, {
+  timestamps: false,
+});
+
+module.exports = User;

@@ -2,25 +2,36 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 
+// Database
+const db = require('./config/database');
+
+// db.authenticate()
+//   .then(() => console.log('Database connected...'))
+//   .catch(err => console.log('Error: ' + err))
+
 const app = express();
+// Or you can simply use a connection uri
+// const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'GEMS'
-});
+// const db = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: '',
+//   database: 'GEMS'
+// });
 
-connection.connect(err => {
-  if (err) {
-    return err;
-  }
-})
+// db.connect(err => {
+//   if (err) {
+//     return err;
+//   }
+// })
 
 app.use(cors());
 
+app.get('/', (req, res) => res.send('INDEX'));
+
 app.get('/api/equipmentItemTypes', (req, res) => {
-  connection.query("select * from equipment_item_types", (err, data) => {
+  db.query("select * from equipment_item_types", (err, data) => {
     if (err) {
       return res.send(err);
     }
@@ -30,6 +41,9 @@ app.get('/api/equipmentItemTypes', (req, res) => {
   });
 });
 
-const port = 5000;
+// ROUTES
+app.use('/api/users', require('./routes/users'));
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
