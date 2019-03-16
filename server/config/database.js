@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('GEMS', 'root', '', {
+const sequelize = new Sequelize('GEMS', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   operatorsAliases: false,
@@ -12,3 +12,5 @@ module.exports = new Sequelize('GEMS', 'root', '', {
     idle: 10000
   },
 });
+module.exports = sequelize;
+global.sequelize = sequelize;
