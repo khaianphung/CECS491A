@@ -1,35 +1,36 @@
-const Sequelize = require('sequelize');
-
-module.exports = sequelize.define('equipmentItem', {
-  id: {
-    type: Sequelize.INTEGER(11),
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  userId: {
-    type: Sequelize.INTEGER(11),
-    allowNull: true,
-    references: {
-      model: User,
-      key: 'id'
+module.exports = (sequelize, DataTypes) => {
+  const EquipmentItem = sequelize.define('EquipmentItem', {
+    id: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    userId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: true,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
+    },
+    equipmentItemTypeId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      references: {
+        model: 'EquipmentItemType',
+        key: 'id'
+      }    
+    },
+    itemCode: {
+      type: DataTypes.STRING(255),
+      unique: true,
+      allowNull: false
+    },  
+    isCheckedOut: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
-  },
-  equipmentItemTypeId: {
-    type: Sequelize.INTEGER(11),
-    allowNull: false
-    references: {
-      model: EquipmentItemType,
-      key: 'id'
-    }    
-  },
-  itemCode: {
-    type: Sequelize.STRING(255),
-    unique: true,
-    allowNull: false
-  },  
-  isCheckedOut: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false
-  }
-});
+  });
+  return EquipmentItem;
+};

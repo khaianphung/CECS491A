@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('equipment_items', [
+    return queryInterface.bulkInsert('equipmentItems', [
       { id: 1, userId: 5, equipmentItemTypeId: 1, itemCode: '000000000001', isCheckedOut: true, createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
       { id: 2, userId: 2, equipmentItemTypeId: 1, itemCode: '000000000002', isCheckedOut: true, createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
       { id: 3, userId: null, equipmentItemTypeId: 1, itemCode: '000000000003', isCheckedOut: false, createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('equipment_items', null);
+    return queryInterface.bulkDelete('equipmentItems', null);
   }
 };

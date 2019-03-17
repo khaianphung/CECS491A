@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 // const db = require('../config/database');
-const User = require('../models/User');
+// const User = require('../models/User');
+const models = require('../models/index');
+// const db = require('../models/index');
 
 // index
 router.get('/', (req, res) => {
-  User.findAll()
+  models.User.findAll()
     .then(users => {
       res.json(users);
     })
@@ -15,7 +17,7 @@ router.get('/', (req, res) => {
 // show
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  User.findById(id)
+  models.User.findById(id)
     .then(user => {
       res.json(user);
     })
@@ -26,7 +28,7 @@ router.get('/:id', (req, res) => {
 router.post('/create', (req, res) => {
   let { username, email, status, first_name, last_name } = req.body;
   
-  User.create({
+  models.User.create({
     username,
     email,
     status,
@@ -41,7 +43,7 @@ router.post('/create', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   const updates = req.body.updates;
-  User.findById(id)
+  models.User.findById(id)
     .then(user => {
       user.updateAttributes(updates);
     })
@@ -54,7 +56,7 @@ router.put('/:id', (req, res) => {
 // destroy
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
-  User.findById(id)
+  models.User.findById(id)
     .then(user => {
       user.destroy();
     })
