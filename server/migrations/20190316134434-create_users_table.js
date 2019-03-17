@@ -11,6 +11,7 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING(255),
+        unique: true,
         allowNull: false
       },
       password: {
@@ -19,6 +20,7 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING(255),
+        unique: true,
         allowNull: false
       },
       status: {
@@ -26,16 +28,16 @@ module.exports = {
         allowNull: false,
         defaultValue: 'Active'
       },
-      first_name: {
+      firstName: {
         type: Sequelize.STRING(255),
         allowNull: false
       },
-      last_name: {
+      lastName: {
         type: Sequelize.STRING(255),
         allowNull: false
       },
-      created_at: Sequelize.DATE,
-      updated_at: Sequelize.DATE
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     })
   },
 

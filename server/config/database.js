@@ -1,9 +1,15 @@
 const Sequelize = require('sequelize');
+console.log("blah");
 
 const sequelize = new Sequelize('GEMS', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   operatorsAliases: false,
+  
+  // define: {
+  //   timestamps: false,
+  //   underscored: true
+  // },
 
   pool: {
     max: 5,

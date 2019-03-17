@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('equipment_item_type', {
+module.exports = sequelize.define('equipmentItemType', {
   id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
-  equipment_category_id: {
+  equipmentCategoryId: {
     type: Sequelize.INTEGER(11),
     allowNull: false
     references: {

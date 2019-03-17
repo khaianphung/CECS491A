@@ -4,6 +4,7 @@ const mysql = require('mysql');
 
 // Database
 const db = require('./config/database');
+// const index = require('./models/index.js');
 
 // db.authenticate()
 //   .then(() => console.log('Database connected...'))

@@ -1,13 +1,13 @@
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('equipment_item', {
+module.exports = sequelize.define('equipmentItem', {
   id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
-  user_id: {
+  userId: {
     type: Sequelize.INTEGER(11),
     allowNull: true,
     references: {
@@ -15,7 +15,7 @@ module.exports = sequelize.define('equipment_item', {
       key: 'id'
     }
   },
-  equipment_item_type_id: {
+  equipmentItemTypeId: {
     type: Sequelize.INTEGER(11),
     allowNull: false
     references: {
@@ -23,11 +23,12 @@ module.exports = sequelize.define('equipment_item', {
       key: 'id'
     }    
   },
-  item_code: {
+  itemCode: {
     type: Sequelize.STRING(255),
+    unique: true,
     allowNull: false
   },  
-  is_checked_out: {
+  isCheckedOut: {
     type: Sequelize.BOOLEAN,
     allowNull: false
   }

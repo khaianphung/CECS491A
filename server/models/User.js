@@ -9,6 +9,7 @@ module.exports = sequelize.define('user', {
   },
   username: {
     type: Sequelize.STRING(255),
+    unique: true,
     allowNull: false
   },
   password: {
@@ -17,6 +18,7 @@ module.exports = sequelize.define('user', {
   },  
   email: {
     type: Sequelize.STRING(255),
+    unique: true,
     allowNull: false
   },
   status: {
@@ -24,11 +26,11 @@ module.exports = sequelize.define('user', {
     allowNull: false,
     defaultValue: 'Active'
   },
-  first_name: {
+  firstName: {
     type: Sequelize.STRING(255),
     allowNull: false
   },
-  last_name: {
+  lastName: {
     type: Sequelize.STRING(255),
     allowNull: false
   }

@@ -2,18 +2,18 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('equipment_item_types', {
+    return queryInterface.createTable('equipmentItemTypes', {
       id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-      equipment_category_id: {
+      equipmentCategoryId: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
         references: {
-          model: "equipment_categories",
+          model: "equipmentCategories",
           key: 'id'
         }
       },
@@ -25,12 +25,12 @@ module.exports = {
         type: Sequelize.STRING(510),
         allowNull: false
       },
-      created_at: Sequelize.DATE,
-      updated_at: Sequelize.DATE
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('equipment_item_types');
+    return queryInterface.dropTable('equipmentItemTypes');
   }
 };

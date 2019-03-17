@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = sequelize.define('equipment_category', {
+module.exports = sequelize.define('equipmentCategory', {
   id: {
     type: Sequelize.INTEGER(11),
     allowNull: false,
@@ -9,6 +9,7 @@ module.exports = sequelize.define('equipment_category', {
   },
   name: {
     type: Sequelize.STRING(255),
+    unique: true,
     allowNull: false
   }
 });
