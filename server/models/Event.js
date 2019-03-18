@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Venue = sequelize.define('Venue', {
+  const Event = sequelize.define('Event', {
     id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -48,10 +48,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     }
   });
-  Venue.associate = function(models) {
-    // Venue.hasMany(models.User);
-    Venue.belongsToMany(models.User, { through: 'Event' });
+  Event.associate = function(models) {
+    // Event.hasMany(models.User);
+    Event.belongsToMany(models.User, { through: 'UserEvent' });
+    Event.hasMany(models.EquipmentItem);
     // associations can be defined here
   };
-  return Venue;
+  return Event;
 };
