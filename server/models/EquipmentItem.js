@@ -6,22 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
-    // userId: {
-    //   type: DataTypes.INTEGER(11),
-    //   allowNull: true,
-    //   references: {
-    //     model: 'User',
-    //     key: 'id'
-    //   }
-    // },
-    // equipmentItemTypeId: {
-    //   type: DataTypes.INTEGER(11),
-    //   allowNull: false,
-    //   references: {
-    //     model: 'EquipmentItemType',
-    //     key: 'id'
-    //   }    
-    // },
     itemCode: {
       type: DataTypes.STRING(255),
       unique: true,
@@ -35,12 +19,6 @@ module.exports = (sequelize, DataTypes) => {
 
   EquipmentItem.associate = function (models) {
     EquipmentItem.belongsTo(models.EquipmentItemType);
-    // EquipmentItem.belongsTo(models.EquipmentItemType, {
-    //   foreignKey: 'equipmentItemTypeId'
-    // });
-  //   // EquipmentItem.belongsTo(models.User, {
-  //   //   foreignKey: ''
-  //   // });
   }
   return EquipmentItem;
 };

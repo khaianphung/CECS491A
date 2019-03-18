@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const models = require('../models/index');
 
 // index
@@ -14,10 +13,9 @@ router.get('/', (req, res) => {
 // show
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  // console.log(models.EquipmentItemType.toString());
-  models.EquipmentItemType.findById(id)
+  models.EquipmentItemType.findByPk(id)
     .then(equipmentItemType => {
-      res.json(equipmentItemType.getEquipmentItems());
+      res.json(equipmentItemType);
     })
     .catch(err => console.log(err))
 });
@@ -41,7 +39,7 @@ router.post('/create', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   const updates = req.body.updates;
-  models.EquipmentItemType.findById(id)
+  models.EquipmentItemType.findByPk(id)
     .then(equipmentItemType => {
       EquipmentItemType.updateAttributes(updates);
     })
@@ -54,7 +52,7 @@ router.put('/:id', (req, res) => {
 // destroy
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
-  models.EquipmentItemType.findById(id)
+  models.EquipmentItemType.findByPk(id)
     .then(equipmentItemType => {
       EquipmentItemType.destroy();
     })

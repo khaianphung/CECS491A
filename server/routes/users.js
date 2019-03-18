@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const models = require('../models/index');
 
 // index
@@ -16,8 +15,7 @@ router.get('/:id', (req, res) => {
   const id = req.params.id;
   models.User.findByPk(id)
     .then(user => {
-      res.json(user.getEquipmentItems());
-      // console.log(models.User);
+      res.json(user);
     })
     .catch(err => console.log(err))
 });
@@ -64,4 +62,24 @@ router.delete('/:id', (req, res) => {
     .catch(err => console.log(err))
 });
 
+// Get all users with equipment items
+// router.get('/:id/equipmentItems', (req, res) => {
+//   models.User.findById(id, {
+//     include: [models.EquipmentItem]
+//   })
+//   .then(user => {
+//     res.json(user);
+//   })
+// });
+
+// Get user with equipment items
+router.get('/:id/equipmentItems', (req, res) => {
+  const id = req.params.id;
+  models.User.findById(id, {
+    include: [models.EquipmentItem]
+  })
+  .then(user => {
+    res.json(user);
+  })
+});
 module.exports = router;

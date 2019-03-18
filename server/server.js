@@ -2,13 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 
+
 // DATABASE
 var db = require(__dirname + '/models/index');
 
 // Sync the database models
-db.sequelize.sync({
-  force: true
-});
+// db.sequelize.sync({
+//   // force: true
+// });
 
 const app = express();
 

@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
 
   EquipmentCategory.associate = function (models) {
     EquipmentCategory.hasMany(models.EquipmentItemType);
-    // EquipmentCategory.hasMany(models.EquipmentItems, { through: 'EquipmentItemTypes', foreignKey: ''});
   }
 
   return EquipmentCategory;
