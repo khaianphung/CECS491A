@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     id: {
@@ -34,11 +35,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }    
   });
-
   User.associate = function (models) {
     User.hasMany(models.EquipmentItem, {
       foreignKey: 'userID'
     });
+    User.belongsToMany(models.Venue, { through: 'Event' });
   }
 
   return User;

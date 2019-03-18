@@ -1,24 +1,19 @@
 const router = require('express').Router();
 const models = require('../models/index');
+const wrap = require('../middleware/wrap');
 
 // index
-router.get('/', (req, res) => {
-  models.EquipmentCategory.findAll()
-    .then(equipmentCategories => {
-      res.json(equipmentCategories);
-    })
-    .catch(err => console.log(err))
-});
+router.get("/", wrap(async (req, res, next) => {
+  let equipmentCategories = await models.EquipmentCategory.findAll();
+  res.json(equipmentCategories);
+}));
 
 // show
-router.get('/:id', (req, res) => {
+router.get("/:id", wrap(async (req, res, next) => {
   const id = req.params.id;
-  models.EquipmentCategory.findByPk(id)
-  .then(equipmentCategory => {
-    res.json(equipmentCategory);
-  })
-    .catch(err => console.log(err))
-});
+  let equipmentCategory = await models.EquipmentCategory.findByPk(id);
+  res.json(equipmentCategory);
+}));
 
 // create
 router.post('/create', (req, res) => {

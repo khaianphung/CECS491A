@@ -1,3 +1,4 @@
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   const EquipmentItemType = sequelize.define('EquipmentItemType', {
     id: {
@@ -15,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-
   EquipmentItemType.associate = function (models) {
     EquipmentItemType.hasMany(models.EquipmentItem);
     EquipmentItemType.belongsTo(models.EquipmentCategory);

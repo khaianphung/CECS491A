@@ -4,29 +4,29 @@ const wrap = require('../middleware/wrap');
 
 // index
 router.get("/", wrap(async (req, res, next) => {
-  let users = await models.User.findAll();
-  res.json(users);
+  let venues = await models.Venue.findAll();
+  res.json(venues);
 }));
 
 // show
 router.get("/:id", wrap(async (req, res, next) => {
   const id = req.params.id;
-  let user = await models.User.findByPk(id);
-  res.json(user);
+  let venue = await models.Venue.findByPk(id);
+  res.json(venue);
 }));
 
 // create
 router.post('/create', (req, res) => {
-  let { username, email, status, first_name, last_name } = req.body;
+  let { Venuename, email, status, first_name, last_name } = req.body;
   
-  models.User.create({
-    username,
+  models.Venue.create({
+    Venuename,
     email,
     status,
     first_name,
     last_name
   })
-    .then(user => res.redirect('/users'))
+    .then(Venue => res.redirect('/Venues'))
     .catch(err => console.log(err));
 });
 
@@ -34,12 +34,12 @@ router.post('/create', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   const updates = req.body.updates;
-  models.User.findByPk(id)
-    .then(user => {
-      user.updateAttributes(updates);
+  models.Venue.findByPk(id)
+    .then(Venue => {
+      Venue.updateAttributes(updates);
     })
-    .then(updatedUser => {
-      res.json(updatedUser);
+    .then(updatedVenue => {
+      res.json(updatedVenue);
     })
     .catch(err => console.log(err))
 });
@@ -47,34 +47,34 @@ router.put('/:id', (req, res) => {
 // destroy
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
-  models.User.findByPk(id)
-    .then(user => {
-      user.destroy();
+  models.Venue.findByPk(id)
+    .then(Venue => {
+      Venue.destroy();
     })
-    .then(deletedUser => {
-      res.json(deletedUser);
+    .then(deletedVenue => {
+      res.json(deletedVenue);
     })
     .catch(err => console.log(err))
 });
 
-// Get all users with equipment items
+// Get all Venues with equipment items
 // router.get('/:id/equipmentItems', (req, res) => {
-//   models.User.findById(id, {
+//   models.Venue.findById(id, {
 //     include: [models.EquipmentItem]
 //   })
-//   .then(user => {
-//     res.json(user);
+//   .then(Venue => {
+//     res.json(Venue);
 //   })
 // });
 
-// Get user with equipment items
-router.get('/:id/equipmentItems', (req, res) => {
+// Get Venue with users
+router.get('/:id/users', (req, res) => {
   const id = req.params.id;
-  models.User.findById(id, {
-    include: [models.EquipmentItem]
+  models.Venue.findById(id, {
+    include: [models.User]
   })
-  .then(user => {
-    res.json(user);
+  .then(users => {
+    res.json(users);
   })
 });
 module.exports = router;
