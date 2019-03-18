@@ -4,9 +4,9 @@ const models = require('../models/index');
 
 // index
 router.get('/', (req, res) => {
-  models.User.findAll()
-    .then(users => {
-      res.json(users);
+  models.EquipmentItemType.findAll()
+    .then(equipmentItems => {
+      res.json(equipmentItems);
     })
     .catch(err => console.log(err))
 });
@@ -14,26 +14,25 @@ router.get('/', (req, res) => {
 // show
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  models.User.findByPk(id)
-    .then(user => {
-      res.json(user.getEquipmentItems());
-      // console.log(models.User);
+  models.EquipmentItemType.findById(id)
+    .then(equipmentItems => {
+      res.json(equipmentItems);
     })
     .catch(err => console.log(err))
 });
 
 // create
 router.post('/create', (req, res) => {
-  let { username, email, status, first_name, last_name } = req.body;
+  let { EquipmentItemTypename, email, status, first_name, last_name } = req.body;
   
-  models.User.create({
-    username,
+  models.EquipmentItemType.create({
+    EquipmentItemTypename,
     email,
     status,
     first_name,
     last_name
   })
-    .then(user => res.redirect('/users'))
+    .then(equipmentItems => res.redirect('/EquipmentItems'))
     .catch(err => console.log(err));
 });
 
@@ -41,12 +40,12 @@ router.post('/create', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id;
   const updates = req.body.updates;
-  models.User.findByPk(id)
-    .then(user => {
-      user.updateAttributes(updates);
+  models.EquipmentItemType.findById(id)
+    .then(equipmentItems => {
+      equipmentItems.updateAttributes(updates);
     })
-    .then(updatedUser => {
-      res.json(updatedUser);
+    .then(updatedEquipmentItemType => {
+      res.json(updatedEquipmentItemType);
     })
     .catch(err => console.log(err))
 });
@@ -54,12 +53,12 @@ router.put('/:id', (req, res) => {
 // destroy
 router.delete('/:id', (req, res) => {
   const id = req.params.id;
-  models.User.findByPk(id)
-    .then(user => {
-      user.destroy();
+  models.EquipmentItemType.findById(id)
+    .then(equipmentItems => {
+      equipmentItems.destroy();
     })
-    .then(deletedUser => {
-      res.json(deletedUser);
+    .then(deletedEquipmentItemType => {
+      res.json(deletedEquipmentItemType);
     })
     .catch(err => console.log(err))
 });

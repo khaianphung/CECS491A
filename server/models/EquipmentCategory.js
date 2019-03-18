@@ -12,5 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
+
+  EquipmentCategory.associate = function (models) {
+    EquipmentCategory.hasMany(models.EquipmentItemType);
+    // EquipmentCategory.hasMany(models.EquipmentItems, { through: 'EquipmentItemTypes', foreignKey: ''});
+  }
+
   return EquipmentCategory;
 };

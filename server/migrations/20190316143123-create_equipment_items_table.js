@@ -9,22 +9,22 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      userId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: true,
-        references: {
-          model: "users",
-          key: 'id'
-        }
-      },
-      equipmentItemTypeId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-        references: {
-          model: "equipmentItemTypes",
-          key: 'id'
-        }    
-      },
+      // userId: {
+      //   type: Sequelize.INTEGER(11),
+      //   allowNull: true,
+      //   references: {
+      //     model: "users",
+      //     key: 'id'
+      //   }
+      // },
+      // equipmentItemTypeId: {
+      //   type: Sequelize.INTEGER(11),
+      //   allowNull: false,
+      //   references: {
+      //     model: "equipmentItemTypes",
+      //     key: 'id'
+      //   }    
+      // },
       itemCode: {
         type: Sequelize.STRING(255),
         unique: true,

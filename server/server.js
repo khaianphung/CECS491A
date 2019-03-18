@@ -5,25 +5,20 @@ const mysql = require('mysql');
 // DATABASE
 var db = require(__dirname + '/models/index');
 
+// Sync the database models
+db.sequelize.sync({
+  force: true
+});
+
 const app = express();
 
 app.use(cors());
 
-// app.get('/', (req, res) => res.send('INDEX'));
-
-// app.get('/api/equipmentItemTypes', (req, res) => {
-//   db.query("select * from equipment_item_types", (err, data) => {
-//     if (err) {
-//       return res.send(err);
-//     }
-//     else {
-//       return res.json({ data })
-//     }
-//   });
-// });
-
 // ROUTES
 app.use('/api/users', require('./routes/users'));
+app.use('/api/equipmentItemTypes', require('./routes/equipmentItemTypes'));
+app.use('/api/equipmentItems', require('./routes/equipmentItems'));
+app.use('/api/equipmentCategories', require('./routes/equipmentCategories'));
 
 const PORT = process.env.PORT || 5000;
 

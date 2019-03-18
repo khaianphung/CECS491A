@@ -9,14 +9,14 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      equipmentCategoryId: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-        references: {
-          model: "equipmentCategories",
-          key: 'id'
-        }
-      },
+      // equipmentCategoryId: {
+      //   type: Sequelize.INTEGER(11),
+      //   allowNull: false,
+      //   references: {
+      //     model: "equipmentCategories",
+      //     key: 'id'
+      //   }
+      // },
       name: {
         type: Sequelize.STRING(255),
         allowNull: false

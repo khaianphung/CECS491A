@@ -34,5 +34,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }    
   });
+
+  User.associate = function (models) {
+    User.hasMany(models.EquipmentItem, {
+      foreignKey: 'userID'
+    });
+  }
+
   return User;
 };
