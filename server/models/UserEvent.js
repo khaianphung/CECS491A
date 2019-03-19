@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       }        
     }
   });
-  userEvent.associate = function(models) {
-    // associations can be defined here
-  };
+  // userEvent.associate = function(models) {
+  //   // associations can be defined here
+  // };
   return userEvent;
 };

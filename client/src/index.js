@@ -13,6 +13,8 @@ import CheckInForm from './components/Equipment/CheckInForm';
 import CheckOutForm from './components/Equipment/CheckOutForm';
 import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm';
 import VenueList from './components/Venue/VenueList';
+import VenueListItem from './components/Venue/VenueListItem';
+import VenueItem from './components/Venue/VenueItem';
 
 class Gems extends React.Component {
   render () {
@@ -49,6 +51,7 @@ class Menu extends React.Component {
           <Route path='/' component={Home} exact />
           <Route path='/AdminConsole' component={AdminConsole} exact />
           <Route path='/venue' component={VenueList} exact />
+          <Route path='/venue/:id' component={VenueItem} exact />
           <Route path="/user/:username" component={User}/>
           <Route path='/equipment' component={EquipmentTable} exact />
           <Route path='/equipment/:id' component={EquipmentItem} exact />
@@ -67,25 +70,6 @@ class Menu extends React.Component {
 const AdminConsole = ({ match }) => {
   return <a href="">Link to go here!</a>
 }
-          
-          
-//   render () {
-//     return (
-//       <BrowserRouter>
-//         <div>
-//           <Route path='/' component={Home} exact />
-//           <Route path="/user/:username" component={User}/>
-//           <Route path='/equipment/:id' component={EquipmentItem} exact />
-//           <Route path='/equipment' component={EquipmentTable} exact />
-//           <Route path='/equipment/new' component={EquipmentForm} exact />
-//           <Route path='/equipment/check_in' component={CheckInForm} exact />
-//           <Route path='/equipment/check_out' component={CheckOutForm} exact />
-//           <Route path='/equipment/transfer' component={EquipmentTransferForm} exact />
-//         </div>
-//       </BrowserRouter>
-//     );
-//   }  
-// }
 
 ReactDOM.render(<Gems />, document.getElementById("root"));
 
