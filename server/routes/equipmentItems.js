@@ -10,6 +10,7 @@ router.get("/", wrap(async (req, res, next) => {
 
 // show
 router.get("/:id", wrap(async (req, res, next) => {
+  const id = req.params.id;
   let equipmentItem = await models.EquipmentItemType.findByPk(id)
   res.json(equipmentItem);
 }));

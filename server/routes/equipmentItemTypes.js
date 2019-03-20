@@ -4,15 +4,38 @@ const wrap = require('../middleware/wrap');
 
 // index
 router.get("/", wrap(async (req, res, next) => {
-  let equipmentItemTypes = await models.EquipmentItemType.findAll();
+  let equipmentItemTypes = await models.EquipmentItemType.findAll({ include: [models.EquipmentCategory] });
   res.json(equipmentItemTypes);
 }));
 
 // show
+// router.get("/:id", wrap(async (req, res, next) => {
+//   const id = req.params.id;
+//   let equipmentItemTypes = await models.EquipmentItemType.findByPk(id)
+//   res.json(equipmentItemTypes);
+// }));
+
+// show
+// router.get("/:id", wrap(async (req, res, next) => {
+//   const id = req.params.id;
+//   let equipmentItemTypes = await models.EquipmentItemType.findByPk(id, {
+//                                    include: [models.EquipmentCategory]
+//                                  })
+//   res.json(equipmentItemTypes);
+// }));
+
+// show
 router.get("/:id", wrap(async (req, res, next) => {
   const id = req.params.id;
-  let equipmentItemTypes = await models.EquipmentItemType.findByPk(id)
-  res.json(equipmentItemTypes);
+  let equipmentItemType = await models.EquipmentItemType.findByPk(id, {
+                                   include: [models.EquipmentCategory]
+                                 });
+  if (equipmentItemType != null) {
+    let equipmentItems = await equipmentItemType.getEquipmentItems();      
+    equipmentItemType = equipmentItemType.toJSON();
+    equipmentItemType.equipmentItems = equipmentItems;
+  }
+  res.json(equipmentItemType);
 }));
 
 // create
@@ -56,5 +79,28 @@ router.delete('/:id', (req, res) => {
     })
     .catch(err => console.log(err))
 });
+
+// router.get("/:id", (req, res) => {
+//   const id = req.params.id;
+//   let equipmentItemType = models.EquipmentItemType.findByPk(id, {
+//                                    include: [models.EquipmentCategory]
+//                                   })
+//                                   .then(equipmentItemType => {
+//                                     return equipmentItemType.getEquipmentItems();
+//                                   })
+//                                   .then()
+//   let equipmentItems = equipmentItemType.getEquipmentItems()
+//                         .then(equipmentItem => {
+//                           return equipmentItem
+//                         });
+
+//   // equipmentItemType.equipmentItems = 'equipmentItems';
+//   // equipmentItemType.set('equipmentItems', equipmentItems);
+//   // console.log(equipmentItemType);
+//   // let test = {};
+//   // test.hello = "wadddd";
+//   res.json(equipmentItemType);
+//   // res.json(test);
+// });
 
 module.exports = router;

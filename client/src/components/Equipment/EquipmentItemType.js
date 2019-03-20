@@ -9,7 +9,7 @@ export default class EquipmentItemType extends React.Component {
       return (
         <tr className="equipment-item-type">
           <td className="name-col">{equipmentItemType.name}</td>
-          <td className="category-col">{equipmentItemType.category}</td>
+          <td className="category-col">{equipmentItemType.EquipmentCategory.name}</td>
           <td className="description-col">{equipmentItemType.description}</td>
           <td className="quantity-col">
             <span className="available-quanity">{}</span> /
