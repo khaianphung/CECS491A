@@ -18,19 +18,20 @@ export default class VenueListItem extends React.Component {
   }
 
   render () {
-    console.log("here");
+    let venue = this.props.venue;
+
     return (
       <div className="venue-list-item card">
-        <CardNews showNews={this.props.venue.price == 0} />
+        <CardNews showNews={venue.price == 0} />
         <div className="view card-img">
-          <img src={'images/' + this.props.venue.pictureUrl} />
+          <img src={venue.pictureUrl} />
         </div>
         <div className="card-block">
           <div className="d-flex">
             <div className="description">
-              <p className="card-text title">{this.props.venue.name}</p>
-              <p className="card-text location">{this.props.venue.locationName}, {this.props.venue.city}, {this.props.venue.country}</p>
-              <p className="card-text date">{this.props.venue.date}</p>
+              <p className="card-text title">{venue.name}</p>
+              <p className="card-text location">{venue.locationName}, {venue.city}, {venue.country}</p>
+              <p className="card-text date">{venue.date}</p>
             </div>
             <div className="actions">
               <i className="far fa-share-square"></i>

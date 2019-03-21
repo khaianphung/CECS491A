@@ -1,12 +1,20 @@
 'use strict';
+require('../helpers/DateToMySqlFormat.js');
+var faker = require('faker/locale/en');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('equipmentCategories', [
-      { id: 1, name: 'Headwear', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 2, name: 'Apparel', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 3, name: 'Electronics', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() }
-    ]);
+    var equipmentCategoriesList = [];
+    for (var i = 0; i < 5; i++) {
+      let newEquipmentCategory = { 
+                                    id: i+1, 
+                                    name: faker.commerce.department(), 
+                                    createdAt: new Date().toMysqlFormat(), 
+                                    updatedAt: new Date().toMysqlFormat() 
+                                  };
+      equipmentCategoriesList.push(newEquipmentCategory);
+    }
+    return queryInterface.bulkInsert('equipmentCategories', equipmentCategoriesList);
   },
 
   down: (queryInterface, Sequelize) => {

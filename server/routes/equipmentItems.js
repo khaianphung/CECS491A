@@ -4,14 +4,14 @@ const wrap = require('../middleware/wrap');
 
 // index
 router.get("/", wrap(async (req, res, next) => {
-  let equipmentItems = await models.EquipmentItemType.findAll();
+  let equipmentItems = await models.EquipmentItem.findAll();
   res.json(equipmentItems);
 }));
 
 // show
 router.get("/:id", wrap(async (req, res, next) => {
   const id = req.params.id;
-  let equipmentItem = await models.EquipmentItemType.findByPk(id)
+  let equipmentItem = await models.EquipmentItem.findByPk(id)
   res.json(equipmentItem);
 }));
 
