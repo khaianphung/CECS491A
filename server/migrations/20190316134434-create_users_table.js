@@ -23,10 +23,10 @@ module.exports = {
         unique: true,
         allowNull: false
       },
-      status: {
-        type: Sequelize.STRING(255),
+      isActive: {
+        type: Sequelize.BOOLEAN,
         allowNull: false,
-        defaultValue: 'Active'
+        defaultValue: 1
       },
       firstName: {
         type: Sequelize.STRING(255),

@@ -1,17 +1,17 @@
 'use strict';
 
 require('../helpers/DateToMySqlFormat.js');
-var faker = require('faker');
+var faker = require('faker/locale/en');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('users', [
-      { id: 1, username: 'dpan216', password: 'password12345', email: 'danthegoofygoober@gmail.com', status: 'Active', firstName: 'Daniel', lastName: 'Pan', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 2, username: 'foobar123', password: 'password12345', email: 'foobar@gmail.com', status: 'Inactive', firstName: 'Foo', lastName: 'Bar', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 3, username: 'swagster098', password: 'password12345', email: 'swagster@gmail.com', status: 'Active', firstName: 'Billy', lastName: 'Jean', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 4, username: 'jamster', password: 'password12345', email: 'jamster@gmail.com', status: 'Inactive', firstName: 'Jamie', lastName: 'Tess', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() },
-      { id: 5, username: 'jpotter', password: 'password12345', email: 'jpotter@gmail.com', status: 'Active', firstName: 'Johnny', lastName: 'Potter', createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() }
-    ]);
+    var usersList = [];
+    for (var i = 0; i < 20; i++) {
+      let newUser = { id: i+1, username: faker.internet.userName(), password: faker.internet.password(), email: faker.internet.email(), isActive: faker.random.boolean(), firstName: faker.name.firstName(), lastName: faker.name.lastName(), createdAt: new Date().toMysqlFormat(), updatedAt: new Date().toMysqlFormat() };
+      usersList.push(newUser);
+    }
+
+    return queryInterface.bulkInsert('users', usersList);
   },
 
   down: (queryInterface, Sequelize) => {

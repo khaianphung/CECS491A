@@ -21,10 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false
     },
-    status: {
-      type: DataTypes.STRING(255),
+    isActive: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: 'Active'
+      defaultValue: 1
     },
     firstName: {
       type: DataTypes.STRING(255),

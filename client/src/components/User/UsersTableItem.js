@@ -10,7 +10,7 @@ export default class UsersTableItem extends React.Component {
         <td className="name-col">{user.firstName + ' ' + user.lastName}</td>
         <td className="email-col">{user.email}</td>
         <td className="joined-col">{user.createdAt}</td>
-        <td className="status-col">{user.status}</td>
+        <td className="status-col">{user.isActive ? 'Active' : 'Inactive'}</td>
         <td className="actions-col">
           <a href={"/users/" + user.firstName + user.lastName + "/edit"}><i className="fas fa-edit"></i></a>
           <a href="/users/new"><i className="fas fa-plus"></i></a>
