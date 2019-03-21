@@ -15,6 +15,7 @@ import EquipmentTransferForm from './components/Equipment/EquipmentTransferForm'
 import VenueList from './components/Venue/VenueList';
 import VenueListItem from './components/Venue/VenueListItem';
 import VenueItem from './components/Venue/VenueItem';
+import UsersTable from './components/User/UsersTable';
 
 class Gems extends React.Component {
   render () {
@@ -39,9 +40,9 @@ const Home = () => {
   );
 }
 
-const User = ({ match }) => {
-  return <h1>Hello {match.params.username}!</h1>
-}
+// const User = ({ match }) => {
+//   return <h1>Hello {match.params.username}!</h1>
+// }
 
 class Menu extends React.Component {
   render () {
@@ -52,7 +53,7 @@ class Menu extends React.Component {
           <Route path='/AdminConsole' component={AdminConsole} exact />
           <Route path='/venue' component={VenueList} exact />
           <Route path='/venue/:id' component={VenueItem} exact />
-          <Route path="/user/:username" component={User}/>
+          <Route path="/users" component={UsersTable}/>
           <Route path='/equipment' component={EquipmentTable} exact />
           <Route path='/equipment/:id' component={EquipmentItem} exact />
           <Route path='/equipment/:name' component={EquipmentItemType} exact />

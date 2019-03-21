@@ -1,5 +1,4 @@
 import React from 'react';
-import EquipmentTableHeader from './EquipmentTableHeader';
 
 export default class EquipmentItemType extends React.Component {
   render () {

@@ -12,6 +12,11 @@ router.get("/", wrap(async (req, res, next) => {
 router.get("/:id", wrap(async (req, res, next) => {
   const id = req.params.id;
   let user = await models.User.findByPk(id);
+  if (user != null) {
+    let equipmentItems = await user.getEquipmentItems()
+    user = user.toJSON();
+    user.equipmentItems = equipmentItems;
+  }
   res.json(user);
 }));
 

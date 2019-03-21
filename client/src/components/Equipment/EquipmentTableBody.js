@@ -3,7 +3,6 @@ import EquipmentItemType from './EquipmentItemType';
 
 export default class EquipmentTableBody extends React.Component {
   renderEquipmentTable() {
-    console.log(this.props.equipmentItemTypes);
     return (
       this.props.equipmentItemTypes.map(
         ( _equipmentItemType, _index ) => (
@@ -13,7 +12,6 @@ export default class EquipmentTableBody extends React.Component {
       ) )
     )
   }
-  // renderEquipmentItemType = ({ id, })
 
   render() {
     return (

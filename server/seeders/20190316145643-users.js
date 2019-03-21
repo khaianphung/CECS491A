@@ -1,6 +1,7 @@
 'use strict';
 
 require('../helpers/DateToMySqlFormat.js');
+var faker = require('faker');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
